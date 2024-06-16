@@ -110,3 +110,5 @@ Once created - edit the properties of the newly created `Update cloudflared` tas
 - Select - `Run whether user is logged on or not`
 - Select - `Run with highest privileges`
 - Enter Windows `username` and `password` when prompted
+
+Run the newly created `Update cloudflared` task and check the `Last Run Result` shows `(0x0)` which means its sucessful.
