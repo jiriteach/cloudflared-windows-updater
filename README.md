@@ -4,7 +4,7 @@
 
 `cloudflared` is the Cloudflare Tunnel client which can be found here - https://github.com/cloudflare/cloudflared.
 
-For those running `cloudflared` on Windows and as noted by Cloudflare here - https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/.
+For those running `cloudflared` on Windows - Automatic updates is not currently possible as noted by Cloudflare here - https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/.
 
 ```
 Instances of cloudflared do not automatically update on Windows. You will need to perform manual updates.
