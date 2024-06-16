@@ -23,7 +23,7 @@ The script checks for the latest version (using `datecreated`) on the `cloudflar
 3. Set `CLOUDFLARED_INSTALL_PATH` to the locally installed `cloudflared` version. Example - `"C:\Program Files (x86)\cloudflared\cloudflared.exe"`
 
 4. Register a new `EventLog` `source` in order for messages from the script to be written to the `Application` log. Run `New-EventLog –LogName Application –Source “Update cloudflared”`  
-Testing the source is working - `Write-EventLog –LogName Application –Source “Update cloudflared” –EntryType Information –EventID 1 –Message “Testing ...”`. The message should appear under the `Application` log in the `Event Viewer`
+Test the source is working by running - `Write-EventLog –LogName Application –Source “Update cloudflared” –EntryType Information –EventID 1 –Message “Testing ...”`. The message should appear under the `Application` log in the `Event Viewer`
 
 5. Execute script as needed or setup a `task` using `Task Scheduler` in Windows for automatic updates.
 
