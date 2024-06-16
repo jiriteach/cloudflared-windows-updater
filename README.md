@@ -16,9 +16,9 @@ The script checks for the latest version (using `datecreated`) on the `cloudflar
 
 ## Requirements & Setup
 1. Requires to be run as `administrator`
-2. Requires `PowerShellForGitHub` module installed. Download and install from here - https://www.powershellgallery.com/packages/PowerShellForGitHub
+2. Requires `PowerShellForGitHub` module installed. Download and install from here - https://www.powershellgallery.com/packages/powershellforgithub
 3. Set `CLOUDFLARED_INSTALL_PATH` to the locally installed `cloudflared` version. Example - `"C:\Program Files (x86)\cloudflared\cloudflared.exe"`
-4. Execute script as required or setup a scheduled task in Windows for an automatic updates.
+4. Execute script as required or setup a `Scheduled Task` in Windows for automatic updates.
 
 ## Example - New `cloudflared` version found!
 
