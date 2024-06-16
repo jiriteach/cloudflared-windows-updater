@@ -15,9 +15,12 @@ This PowerShell scripts automates the update process for `cloudflared` on Window
 The script checks for the latest version (using `datecreated`) on the `cloudflared` repository (https://github.com/cloudflare/cloudflared) on GitHub. The script then compares the `datecreated` with the locally installed version. If a later version exists - the script will stop the `cloudflared` service and download and install the new version and start the `cloudflared` service again.
 
 ## Requirements & Setup
-1. Requires to be run as `administrator`
-2. Requires `PowerShellForGitHub` module installed. Download and install from here - https://www.powershellgallery.com/packages/powershellforgithub
+1. Requires to be run as `administrator`.
+
+2. Requires `PowerShellForGitHub` module installed. Download and install from here - https://www.powershellgallery.com/packages/powershellforgithub or run `Install-Module -Name PowerShellForGitHub`.
+
 3. Set `CLOUDFLARED_INSTALL_PATH` to the locally installed `cloudflared` version. Example - `"C:\Program Files (x86)\cloudflared\cloudflared.exe"`
+
 4. Execute script as needed or setup a `task` using `Task Scheduler` in Windows for automatic updates.
 
 ## Example - New `cloudflared` version found!
