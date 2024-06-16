@@ -20,14 +20,16 @@ The script checks for the latest version (using `datecreated`) on the `cloudflar
 
 2. Requires `PowerShellForGitHub` module installed. Download and install from here - https://www.powershellgallery.com/packages/powershellforgithub or run `Install-Module -Name PowerShellForGitHub`.
 
-3. Set `CLOUDFLARED_INSTALL_PATH` to the locally installed `cloudflared` version. Example - `"C:\Program Files (x86)\cloudflared\cloudflared.exe"`
+3. Set `CLOUDFLARED_INSTALL_PATH` to the locally installed `cloudflared` version.  
+Example - `"C:\Program Files (x86)\cloudflared\cloudflared.exe"`.
 
-4. Register a new `EventLog` `source` in order for messages from the script to be written to the `Application` log. Run `New-EventLog –LogName Application –Source “Update cloudflared”`  
-Test the source is working by running - `Write-EventLog –LogName Application –Source “Update cloudflared” –EntryType Information –EventID 1 –Message “Testing ...”`. The message should appear under the `Application` log in the `Event Viewer`
+4. Register a new `EventLog` `source` in order for messages from the script to be written to the `Application` log.  
+Run `New-EventLog –LogName Application –Source “Update cloudflared”`.    
+Test the source is working by running - `Write-EventLog –LogName Application –Source “Update cloudflared” –EntryType Information –EventID 1 –Message “Testing ...”`. The message should appear under the `Application` log in the `Event Viewer`.
 
 5. Execute script as needed or setup a `task` using `Task Scheduler` in Windows for automatic updates.
 
-## Example - New `cloudflared` version found!
+## Example output - New `cloudflared` version found!
 
 ```
 PS C:\Scripts> .\update-cloudflared.ps1
@@ -80,7 +82,7 @@ Installed cloudflared version -  16/06/2024 14:40:33
 Latest cloudflared version already installed. No update required!
 ```
 
-## Example - No updated required! 
+## Example output - No updated required! 
 
 ```
 PS C:\Scripts> .\update-cloudflared.ps1
