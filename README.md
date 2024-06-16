@@ -11,23 +11,23 @@ Instances of cloudflared do not automatically update on Windows.
 You will need to perform manual updates.
 ```
 
-This PowerShell scripts automates the update process for `cloudflared` on Windows. 
+This PowerShell script automates the update process for `cloudflared` on Windows. 
 
-The script checks for the latest version (using `datecreated`) on the `cloudflared` repository (https://github.com/cloudflare/cloudflared) on GitHub. The script then compares the `datecreated` with the locally installed version. If a later version exists - the script will stop the `cloudflared` service and download and install the new version and start the `cloudflared` service again.
+The script checks for the latest version (using `datecreated`) on the `cloudflared` GitHub repository (https://github.com/cloudflare/cloudflared). The script compares the `datecreated` between the GitHub respository and the locally installed version. If a later version exists - the script will stop the `cloudflared` service and download and install the new version then start the `cloudflared` service again.
 
 ## Requirements & Setup
-1. Requires to be run as `administrator`.
+1. Requires PowerShell to be run as `administrator`.
 
-2. Requires `PowerShellForGitHub` module installed. Download and install from here - https://www.powershellgallery.com/packages/powershellforgithub or run `Install-Module -Name PowerShellForGitHub`.
+2. Requires `PowerShellForGitHub` module (https://www.powershellgallery.com/packages/powershellforgithub) installed. Run `Install-Module -Name PowerShellForGitHub`.
 
-3. Set `CLOUDFLARED_INSTALL_PATH` to the locally installed `cloudflared` version.  
+3. Set `CLOUDFLARED_INSTALL_PATH` to the path of the locally installed `cloudflared` version.  
 Example - `"C:\Program Files (x86)\cloudflared\cloudflared.exe"`.
 
-4. Register a new `EventLog` `source` in order for messages from the script to be written to the `Application` log.  
+4. Register a new `EventLog` `source` in order for messages from the script to be written to the `Application` log in the Event Viewer.  
 Run `New-EventLog –LogName Application –Source “Update cloudflared”`.    
-Test the source is working by running - `Write-EventLog –LogName Application –Source “Update cloudflared” –EntryType Information –EventID 1 –Message “Testing ...”`. The message should appear under the `Application` log in the `Event Viewer`.
+Test the source is working by running - `Write-EventLog –LogName Application –Source “Update cloudflared” –EntryType Information –EventID 1 –Message “HelloWorld”`. The message should appear under the `Application` log in the Event Viewer.
 
-5. Execute script as needed or setup a `task` using `Task Scheduler` in Windows for automatic updates.
+5. Execute script as needed or setup a `task` using Task Scheduler in Windows for automatic updates.
 
 ## Example output - New `cloudflared` version found!
 
