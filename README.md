@@ -7,7 +7,8 @@
 For those running `cloudflared` on Windows - Automatic updates is not currently possible as noted by Cloudflare here - https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/.
 
 ```
-Instances of cloudflared do not automatically update on Windows. You will need to perform manual updates.
+Instances of cloudflared do not automatically update on Windows. 
+You will need to perform manual updates.
 ```
 
 This PowerShell scripts automates the update process for `cloudflared` on Windows. 
