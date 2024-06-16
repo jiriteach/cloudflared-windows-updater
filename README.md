@@ -18,7 +18,7 @@ The script checks for the latest version (using `datecreated`) on the `cloudflar
 1. Requires to be run as `administrator`
 2. Requires `PowerShellForGitHub` module installed. Download and install from here - https://www.powershellgallery.com/packages/powershellforgithub
 3. Set `CLOUDFLARED_INSTALL_PATH` to the locally installed `cloudflared` version. Example - `"C:\Program Files (x86)\cloudflared\cloudflared.exe"`
-4. Execute script as required or setup a `Scheduled Task` in Windows for automatic updates.
+4. Execute script as needed or setup a `task` using `Task Scheduler` in Windows for automatic updates.
 
 ## Example - New `cloudflared` version found!
 
@@ -90,3 +90,20 @@ Installed cloudflared version -  16/06/2024 14:40:33
 
 Latest cloudflared version already installed. No update required!
 ```
+
+## Task Scheduler
+
+A new `task` can be created in Task Scheduler to check for and update `cloudflared` daily for example.
+
+1. Create a Basic Task
+2. Name - `Update cloudflared`
+3. Task Trigger - `daily`
+4. Action - `Start a program`  
+Program/script - `powershell`  
+Add arguments - `-File "C:\Program Files (x86)\cloudflared\update-cloudflared.ps1"`
+5. Finish
+
+Once created - edit the properties of the newly created `Update cloudflared` task. Under Security Options - 
+- Select - `Run whether user is logged on or not`
+- Select - `Run with highest privileges`
+- Enter Windows `username` and `password` when prompted
