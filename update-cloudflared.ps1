@@ -71,5 +71,5 @@ if ((Get-Date $RELEASE_DATE) -gt (Get-Date $INSTALLED_DATE)) {
 }
 
 Write-EventLog -LogName Application -Source "Update cloudflared" -EntryType Information -EventID 1 -Message $EVENTLOG_MESSAGES
- 
+
 exit
