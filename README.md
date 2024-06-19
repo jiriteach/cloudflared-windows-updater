@@ -15,8 +15,9 @@ This PowerShell script automates the check and/or update process for `cloudflare
 
 The script checks for the latest version (using `datecreated`) on the `cloudflared` GitHub repository (https://github.com/cloudflare/cloudflared). The script compares the `datecreated` between the GitHub respository and the locally installed version. If a later version exists - the script will stop the `cloudflared` service and download and install the new version then start the `cloudflared` service again.
 
-Ouputs are written to the console and the Event Viewer.  
-Updated - 19-06/2024 - Outputs can now also be sent via Telegram providing notifications.
+Ouputs are written to the console and the Event Viewer.
+
+#### Updated - 19-06/2024 - Outputs can now also be sent via Telegram providing notifications.
 
 ## Requirements and setup
 1. Requires PowerShell to be run as `administrator`.
