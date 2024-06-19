@@ -123,7 +123,7 @@ Once created - edit the properties of the newly created `Update cloudflared` tas
 
 Run the newly created `Update cloudflared` task and check the `Last Run Result` shows `(0x0)` which means its sucessful.
 
-# Telegram Notifications
+## Telegram Notifications
 Updated 19/06/2024 - A script `update-cloudflared-telegram-version.ps1` is available which can now send a Telegram notification once the check and/or update is complete.
 
 The following parameters are required for this  - 
