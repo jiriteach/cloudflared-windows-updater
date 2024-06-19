@@ -11,9 +11,12 @@ Instances of cloudflared do not automatically update on Windows.
 You will need to perform manual updates.
 ```
 
-This PowerShell script automates the update process for `cloudflared` on Windows. 
+This PowerShell script automates the check and/or update process for `cloudflared` on Windows. 
 
 The script checks for the latest version (using `datecreated`) on the `cloudflared` GitHub repository (https://github.com/cloudflare/cloudflared). The script compares the `datecreated` between the GitHub respository and the locally installed version. If a later version exists - the script will stop the `cloudflared` service and download and install the new version then start the `cloudflared` service again.
+
+Ouputs are written to the console and the Event Viewer.  
+Updated - 19-06/2024 - Outputs can now also be sent via Telegram providing notifications.
 
 ## Requirements and setup
 1. Requires PowerShell to be run as `administrator`.
@@ -29,7 +32,7 @@ Test the source is working by running - `Write-EventLog â€“LogName Application â
 
 5. Execute script as needed or setup a `task` using Task Scheduler in Windows for automatic updates.
 
-## Example output - New `cloudflared` version found!
+### Example output - New `cloudflared` version found!
 
 ```
 PS C:\Scripts> .\update-cloudflared.ps1
@@ -82,7 +85,7 @@ Installed cloudflared version -  16/06/2024 14:40:33
 Latest cloudflared version already installed. No update required!
 ```
 
-## Example output - No updated required! 
+### Example output - No updated required! 
 
 ```
 PS C:\Scripts> .\update-cloudflared.ps1
@@ -118,3 +121,40 @@ Once created - edit the properties of the newly created `Update cloudflared` tas
 - Enter Windows `username` and `password` when prompted
 
 Run the newly created `Update cloudflared` task and check the `Last Run Result` shows `(0x0)` which means its sucessful.
+
+# Telegram Notifications
+Updated 19/06/2024 - A script `update-cloudflared-telegram-version.ps1` is available which can now send a Telegram notification once the check and/or update is complete.
+
+The following parameters are required for this  - 
+
+```
+  # Reference - https://docs.tracardi.com/qa/how_can_i_get_telegram_bot/
+
+	$telegram_token=""
+	$telegram_chat_id=""
+```
+
+A further parameter can also be configured to only send a Telegram notication when an update is required as opposed to a notification on every check.
+
+```
+$TELEGRAM_MESSAGE_UPDATES_ONLY = "true"
+```
+
+### Example output - Telegram notification 
+
+```
+cloudflared Windows updater on ROOBER
+GitHub cloudflared version checked - 06/18/2024 03:30:52
+
+Installed cloudflared version checked - 05/08/2024 09:48:14
+
+New cloudflared version found
+Updated required!
+
+-- Stopping cloudflared service
+-- Downloading and installing latest cloudflared version from GitHub
+-- Download and installation completed successfully
+-- cloudflared service started successfully
+
+cloudflared update complete
+```
